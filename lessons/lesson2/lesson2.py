@@ -5,7 +5,7 @@ import random
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv('TOKEN')
+TOKEN = os.getenv('TOKEN_TG')
 bot = Bot(TOKEN)
 dp = Dispatcher(bot)
 

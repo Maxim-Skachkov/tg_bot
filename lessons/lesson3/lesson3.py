@@ -3,7 +3,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv('TOKEN')
+TOKEN = os.getenv('TOKEN_TG')
 bot = Bot(TOKEN)
 dp = Dispatcher(bot)
 
@@ -31,4 +31,4 @@ async def response_message(message: types.Message):
     await message.reply(text='❤️')
 
 if __name__ == '__main__':
-    executor.start_polling(dp, on_startup=on_startup)
+    executor.start_polling(dp, on_startup=on_startup, skip_updates=True)

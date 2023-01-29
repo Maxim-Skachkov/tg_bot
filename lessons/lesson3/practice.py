@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-bot = Bot(os.getenv('TOKEN'))
+bot = Bot(os.getenv('TOKEN_TG'))
 dp = Dispatcher(bot)
 stickers = {
     'hot_cherry': 'CAACAgIAAxkBAAEHfExj1SLn5WdWOZQI50pJc9UROir_fwACHAADwDZPE8GCGtMs_g7hLQQ',
