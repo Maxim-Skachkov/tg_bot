@@ -1,3 +1,4 @@
+import random
 from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv
 import os
@@ -16,7 +17,7 @@ buttons = {
     'description': KeyboardButton('/description'),
     'img': KeyboardButton('/img'),
 }
-[kb.insert(btn) if loop_count % 2 else kb.add(btn) for loop_count, btn in enumerate(buttons.values())]
+[kb.insert(btn) if loop_count % 3 else kb.add(btn) for loop_count, btn in enumerate(buttons.values())]
 
 HELP = {
     '/help': 'Запрос помощи',
@@ -63,7 +64,9 @@ async def description_handler(message: types.Message):
 async def loc_handler(message: types.Message):
     text = 'Ищи бункер ТУТ!'
     await bot.send_message(chat_id=message.from_user.id, text=text)
-    await bot.send_location(chat_id=message.from_user.id, latitude=61.716003, longitude=31.911356)
+    latitude = float(f"{random.randrange(1, 99):02}.{random.randrange(0, 999999):06}")
+    longtude = float(f"{random.randrange(1, 99):02}.{random.randrange(0, 999999):06}")
+    await bot.send_location(chat_id=message.from_user.id, latitude=latitude, longitude=longtude)
     await del_msg(message)
 
 
